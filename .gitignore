@@ -3,6 +3,7 @@
 !scenes
 !sensors
 !automation
+!.travis.yaml
 !.gitignore
 secrets.yaml
 known_devices.yaml
