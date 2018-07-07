@@ -81,3 +81,18 @@ device_tracker:
   - platform: nmap_tracker
     hosts: !secret home_network
     interval_seconds: 60
+
+
+# Example configuration.yaml entry for the Telegram Bot
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id1
+
+# Example configuration.yaml entry for the notifier
+notify:
+  - name: Telegram
+    api_key: !secret telegram_api_key
+    platform: telegram
+    chat_id: !secret telegram_chat_id1    
