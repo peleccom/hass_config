@@ -1,4 +1,3 @@
-# Notify when Paulus leaves the house in the evening
 - alias: 'Telegram bot that reply pong to ping'
   hide_entity: true
   trigger:

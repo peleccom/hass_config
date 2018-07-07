@@ -61,6 +61,7 @@ weather:
 # Text to speech
 tts:
   - platform: google
+    language: 'ru'
 
 # Cloud
 cloud:

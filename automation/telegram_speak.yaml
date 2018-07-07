@@ -1,0 +1,12 @@
+- alias: 'Telegram bot that speak message'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/speak'
+  action:
+    - service: tts.google_say
+      data_template:
+        message: >
+         {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}
