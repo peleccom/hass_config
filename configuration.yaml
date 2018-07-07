@@ -58,11 +58,6 @@ sun:
 weather:
   - platform: yweather
 
-# Weather prediction
-sensor:
-  - platform: yr
-#  - platform: supervisord
-
 # Text to speech
 tts:
   - platform: google
@@ -71,5 +66,18 @@ tts:
 cloud:
 
 group: !include groups.yaml
-automation: !include automations.yaml
 script: !include scripts.yaml
+
+
+##  Input Slider
+input_number: !include input_number.yaml
+input_boolean: !include input_boolean.yaml
+sensor: !include_dir_merge_list sensors
+
+## Automation for: alarmclock...
+automation: !include_dir_merge_list automation
+
+device_tracker:
+  - platform: nmap_tracker
+    hosts: !secret home_network
+    interval_seconds: 60

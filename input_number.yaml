@@ -1,0 +1,14 @@
+alarmhour:
+  name: Часы
+  icon: mdi:timer
+  initial: 8
+  min: 0
+  max: 23
+  step: 1
+alarmminutes:
+  name: Минуты
+  icon: mdi:timer
+  initial: 40 
+  min: 0
+  max: 59
+  step: 1

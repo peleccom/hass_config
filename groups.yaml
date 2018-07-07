@@ -1,0 +1,33 @@
+# Определяем какие вкладки и элементы будут отображаться во frontend, а также, что будет отображаться на основной вкладке.
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+    - device_tracker.Alex
+    - device_tracker.N551JM
+    - group.AlarmClock
+    - sensor.alarm_time
+    - sensor.owm_cloud_coverage
+    - sensor.owm_condition
+    - sensor.owm_humidity
+    - sensor.owm_rain
+    - sensor.owm_snow
+    - sensor.owm_temperature
+    - sensor.owm_wind_speed
+    - sun.sun 
+#Определяем какие элементы входят в состав группы
+alarmclock:
+  name: Будильник.
+  entities:
+    - sensor.alarm_time
+    - input_number.alarmhour
+    - input_number.alarmminutes
+    - input_boolean.alarmweekday
+ 
+#Вкладка (tab) описываем состав вкладки.
+AlarmClock:
+  name: Будильник
+  view: yes
+  icon: mdi:alarm
+  entities:
+    - group.alarmclock

@@ -1,0 +1,12 @@
+- platform: openweathermap
+  api_key: !secret openweathermap_api_key
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  monitored_conditions:
+    - weather
+    - temperature
+    - wind_speed
+    - humidity
+    - clouds
+    - rain
+    - snow

@@ -1,0 +1,4 @@
+alarmweekday:
+  name: Рабочая неделя
+  initial: on
+  icon: mdi:calendar
