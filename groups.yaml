@@ -5,6 +5,7 @@ default_view:
   entities:
     - device_tracker.Alex
     - device_tracker.AlexLaptop
+    - media_player.vlcmp
     - group.AlarmClock
     - group.Weather
 
