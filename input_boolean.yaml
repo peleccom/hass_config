@@ -2,3 +2,7 @@ alarmweekday:
   name: Рабочая неделя
   initial: on
   icon: mdi:calendar
+
+# trigger_first_alex_arrive:
+#   name: Waiting for first Alex arrive
+#   initial: off

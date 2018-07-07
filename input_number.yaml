@@ -5,6 +5,7 @@ alarmhour:
   min: 0
   max: 23
   step: 1
+
 alarmminutes:
   name: Минуты
   icon: mdi:timer

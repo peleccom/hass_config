@@ -1,4 +1,8 @@
-# Определяем какие вкладки и элементы будут отображаться во frontend, а также, что будет отображаться на основной вкладке.
+############################################################
+#                                                          #
+#                     Group Tabs                           #
+#                                                          #
+############################################################
 default_view:
   view: yes
   icon: mdi:home
@@ -8,15 +12,6 @@ default_view:
     - media_player.vlcmp
     - group.AlarmClock
     - group.Weather
-
-#Определяем какие элементы входят в состав группы
-alarmclock:
-  name: Будильник.
-  entities:
-    - sensor.alarm_time
-    - input_number.alarmhour
-    - input_number.alarmminutes
-    - input_boolean.alarmweekday
  
 #Вкладка (tab) описываем состав вкладки.
 AlarmClock:
@@ -32,11 +27,36 @@ Weather:
   view: yes
   icon: mdi:weather-cloudy
   entities:
-    - sensor.owm_cloud_coverage
-    - sensor.owm_condition
-    - sensor.owm_humidity
-    - sensor.owm_rain
-    - sensor.owm_snow
-    - sensor.owm_temperature
-    - sensor.owm_wind_speed
+    - group.sun
+    - group.weatherCondition
+    # - sensor.owm_cloud_coverage
+    # - sensor.owm_condition
+    # - sensor.owm_humidity
+    # - sensor.owm_rain
+    # - sensor.owm_snow
+    # - sensor.owm_temperature
+    # - sensor.owm_wind_speed
+    # - sun.sun
+
+############################################################
+#                                                          #
+#                  Entities Groups                         #
+#                                                          #
+############################################################
+
+Sun:
+  entities:
     - sun.sun
+
+WeatherCondition:
+  entities:
+    - weather.yweather
+
+#Определяем какие элементы входят в состав группы
+alarmclock:
+  name: Будильник.
+  entities:
+    - sensor.alarm_time
+    - input_number.alarmhour
+    - input_number.alarmminutes
+    - input_boolean.alarmweekday
