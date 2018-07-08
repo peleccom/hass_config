@@ -1,17 +1,17 @@
-# # turns it off an hour after sunrise
-# - alias: Enable First Alex Arrive Trigger
-#   trigger:
-#     - platform: time
-#       at: '12:00:00'      
-#   action: 
-#     service: homeassistant.turn_on
-#     entity_id: input_boolean.trigger_first_alex_arrive
+# turns it off an hour after sunrise
+- alias: Enable First Alex Arrive Trigger
+  trigger:
+    - platform: time
+      at: '12:00:00'      
+  action: 
+    service: homeassistant.turn_on
+    entity_id: input_boolean.trigger_first_alex_arrive
 
-# # turns it off an hour after sunrise
-# - alias: Disable First Alex Arrive Trigger
-#   trigger:
-#     - platform: time
-#       at: "22:00:00"
-#   action: 
-#     service: homeassistant.turn_off
-#     entity_id: input_boolean.trigger_first_alex_arrive
+# turns it off an hour after sunrise
+- alias: Disable First Alex Arrive Trigger
+  trigger:
+    - platform: time
+      at: "22:00:00"
+  action: 
+    service: homeassistant.turn_off
+    entity_id: input_boolean.trigger_first_alex_arrive

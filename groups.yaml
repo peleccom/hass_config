@@ -9,10 +9,21 @@ default_view:
   entities:
     - device_tracker.Alex
     - device_tracker.AlexLaptop
+    - sensor.owm_temperature
     - media_player.vlcmp
     - group.AlarmClock
     - group.Weather
- 
+
+#Определяем какие элементы входят в состав группы
+alarmclock:
+  name: Будильник.
+  entities:
+    - sensor.alarm_time
+    - input_number.alarmhour
+    - input_number.alarmminutes
+    - input_boolean.alarmweekday
+
+
 #Вкладка (tab) описываем состав вкладки.
 AlarmClock:
   name: Будильник
@@ -51,12 +62,10 @@ Sun:
 WeatherCondition:
   entities:
     - weather.yweather
-
-#Определяем какие элементы входят в состав группы
-alarmclock:
-  name: Будильник.
-  entities:
-    - sensor.alarm_time
-    - input_number.alarmhour
-    - input_number.alarmminutes
-    - input_boolean.alarmweekday
+    - sensor.owm_cloud_coverage
+    - sensor.owm_condition
+    - sensor.owm_humidity
+    - sensor.owm_rain
+    - sensor.owm_snow
+    - sensor.owm_temperature
+    - sensor.owm_wind_speed

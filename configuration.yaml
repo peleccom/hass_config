@@ -75,6 +75,7 @@ input_number: !include input_number.yaml
 input_boolean: !include input_boolean.yaml
 sensor: !include_dir_merge_list sensors
 
+zone: !include zones.yaml
 media_player: !include media_player.yaml
 
 ## Automation for: alarmclock...

@@ -1,75 +1,74 @@
-# - alias: 'Будильник '
-#   trigger:
-#     platform: template
-#     value_template: '{{ states.sensor.time.state == states.sensor.alarm_time.state }}' # Определение тригера.
-#   condition: # Условия
-#     condition: or
-#     conditions:
-#       - condition: and
-#         conditions:
-#         - condition: state
-#           entity_id: input_boolean.alarmweekday
-#           state: 'on'
-#         - condition: time
-#           weekday:
-#             - mon
-#             - tue
-#             - wed
-#             - thu
-#             - fri
-#       - condition: state
-#         entity_id: input_boolean.alarmweekday
-#         state: 'off'
-#   action: # Действия 
-#     - service: notify.NOTIFIER_NAME
-#       data_template:
-#         title: Доброе утро, Дружище! =)
-#         message: "Просыпайся, на работу пора! За окном сейчас {{ states('sensor.owm_temperature')|int }} °C."
-#     - service: media_player.turn_on # Включаем медиа плеер
-#       entity_id: media_player.yamaha_671_zone_2 # Указываем, какой именно медиа плеер нас интересует
+- alias: 'Будильник '
+  trigger:
+    platform: template
+    value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_time.state }}' # Определение тригера.
+  condition: # Условия
+    condition: or
+    conditions:
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: input_boolean.alarmweekday
+          state: 'on'
+        - condition: time
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - fri
+      - condition: state
+        entity_id: input_boolean.alarmweekday
+        state: 'off'
+  action: # Действия 
+    - service: notify.Telegram
+      data_template:
+        title: Доброе утро, Дружище! =)
+        message: "Просыпайся, на работу пора! За окном сейчас {{ states('sensor.owm_temperature')|int }} °C."
+    # - service: media_player.turn_on # Включаем медиа плеер
+    #   entity_id: media_player.vlcmp # Указываем, какой именно медиа плеер нас интересует
 
-#     - service: media_player.volume_set # Устанавливаем громкость
-#       data:
-#         entity_id: media_player.yamaha_671_zone_2# Указываем, какой именно медиа плеер нас интересует
-#         volume_level: '0.20' # Значение параметра Громкость
+    # - service: media_player.volume_set # Устанавливаем громкость
+    #   data:
+    #     entity_id: media_player.vlcmp # Указываем, какой именно медиа плеер нас интересует
+    #     volume_level: '0.20' # Значение параметра Громкость
 
-#     - service: media_player.select_source # Выбираем источник 
-#       data:
-#         entity_id: media_player.yamaha_671_zone_2
-#         source: NET RADIO
+    # - service: media_player.select_source # Выбираем источник 
+    #   data:
+    #     entity_id: media_player.vlcmp
+    #     source: NET RADIO
 
-#     - delay: 00:00:10 # Пауза
-#     - service: media_player.volume_set # Устанавливаем громкость
-#       data:
-#         entity_id: media_player.yamaha_671_zone_2
-#         volume_level: '0.25'
+    # - delay: 00:00:10 # Пауза
+    # - service: media_player.volume_set # Устанавливаем громкость
+    #   data:
+    #     entity_id: media_player.vlcmp
+    #     volume_level: '0.25'
 
-#     - delay: 00:00:01 # Пауза
-#     - service: media_player.volume_set # Устанавливаем громкость
-#       data:
-#         entity_id: media_player.yamaha_671_zone_2
-#         volume_level: '0.30'
+    # - delay: 00:00:01 # Пауза
+    # - service: media_player.volume_set # Устанавливаем громкость
+    #   data:
+    #     entity_id: media_player.vlcmp
+    #     volume_level: '0.30'
  
-# # Тут было много повторяющихся блоков с растущим значением громкости каждую секунду
+# Тут было много повторяющихся блоков с растущим значением громкости каждую секунду
 
-#     - delay: 00:00:01
-#     - service: media_player.turn_on # Включаем опять, вдруг выключен. (В идеале лучше выносить в отдельный automation)
-#       entity_id: media_player.yamaha_671_zone_2
+    # - delay: 00:00:01
+    # - service: media_player.turn_on # Включаем опять, вдруг выключен. (В идеале лучше выносить в отдельный automation)
+    #   entity_id: media_player.vlcmp
 
-#     - service: media_player.select_source
-#       data:
-#         entity_id: media_player.yamaha_671_zone_2 # Выбираем источник - теперь это вход Audio 2 - именно к нему подключен RPi
-#         source: AUDIO2
+    # - service: media_player.select_source
+    #   data:
+    #     entity_id: media_player.vlcmp # Выбираем источник - теперь это вход Audio 2 - именно к нему подключен RPi
+    #     source: AUDIO2
 
-#     - service: media_player.volume_set
-#       data:
-#         entity_id: media_player.yamaha_671_zone_2
-#         volume_level: '0.70'
+    # - service: media_player.volume_set
+    #   data:
+    #     entity_id: media_player.vlcmp
+    #     volume_level: '0.70'
 
-#     - delay: 00:00:01
-#     - service: tts.yandextts_say # Вызываем Яндекс
-#       data_template:
-#         message: "Любезный сударь! Извольте выслушать краткую сводку новостей о погоде. За окном сейчас {{ states('sensor.owm_temperature')|int }} градусов." # Указываем какой текст нам необходимо синтезировать
-#         entity_id: media_player.vlcmp # Указываем, какой медиа плеер должен воспроизвести поток
-#         language: 'ru-RU'
-
+    - delay: 00:00:01
+    - service: tts.google_say # Вызываем Яндекс
+      data_template:
+        message: "Любезный сударь! Извольте выслушать краткую сводку новостей о погоде. За окном сейчас {{ states('sensor.owm_temperature')|int }} градусов." # Указываем какой текст нам необходимо синтезировать
+        # entity_id: media_player.vlcmp # Указываем, какой медиа плеер должен воспроизвести поток
+        language: 'ru'
