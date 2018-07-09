@@ -11,6 +11,7 @@ default_view:
     - device_tracker.AlexLaptop
     - sensor.owm_temperature
     - media_player.vlcmp
+    - camera.webcam
     - group.AlarmClock
     - group.Weather
 
@@ -40,6 +41,7 @@ Weather:
   entities:
     - group.sun
     - group.weatherCondition
+    - sensor.moon
     # - sensor.owm_cloud_coverage
     # - sensor.owm_condition
     # - sensor.owm_humidity
@@ -48,6 +50,13 @@ Weather:
     # - sensor.owm_temperature
     # - sensor.owm_wind_speed
     # - sun.sun
+
+System:
+  name: Система
+  view: yes
+  icon: mdi:wrench
+  entities:
+    - group.devPi
 
 ############################################################
 #                                                          #
@@ -69,3 +78,18 @@ WeatherCondition:
     - sensor.owm_snow
     - sensor.owm_temperature
     - sensor.owm_wind_speed
+
+devPi:
+  name: Pi
+  entities:
+    - switch.pi_display
+    - sensor.processor_use
+    - sensor.cpu_temp
+    - sensor.disk_use_percent_
+    - sensor.memory_free
+    - sensor.memory_use_percent
+    - sensor.since_last_boot
+    - sensor.ha_last_restart
+    - sensor.load_1m
+    - sensor.load_5m
+    - sensor.load_15m

@@ -78,6 +78,11 @@ sensor: !include_dir_merge_list sensors
 zone: !include zones.yaml
 media_player: !include media_player.yaml
 
+camera:
+  - platform: local_file
+    name: Webcam
+    file_path: /var/tmp_ram/lastsnap.jpg
+
 ## Automation for: alarmclock...
 automation: !include_dir_merge_list automation
 
@@ -100,3 +105,13 @@ notify:
     api_key: !secret telegram_api_key
     platform: telegram
     chat_id: !secret telegram_chat_id1    
+
+switch:
+
+  - platform: command_line
+    switches:
+      pi_display:
+        friendly_name: Pi Display
+        command_on: "DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority xset dpms force on"
+        command_off: "DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority xset dpms force off"
+        command_state: "DISPLAY=:0 XAUTHORITY=/home/pi/.Xauthority xset -q | grep 'Monitor is' | grep 'On' > /dev/null"
