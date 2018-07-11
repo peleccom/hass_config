@@ -92,7 +92,6 @@ device_tracker:
     hosts: !secret home_network
     interval_seconds: 60
 
-
 # Example configuration.yaml entry for the Telegram Bot
 telegram_bot:
   - platform: polling

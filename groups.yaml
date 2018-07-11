@@ -58,6 +58,7 @@ System:
   icon: mdi:wrench
   entities:
     - group.devPi
+    - group.supervisord
     - script.restart_ha
     - switch.reboot
 
@@ -96,3 +97,9 @@ devPi:
     - sensor.load_1m
     - sensor.load_5m
     - sensor.load_15m
+
+supervisord:
+  name: supervisord
+  entities:
+    - switch.ngrok_ssh
+    - switch.pythonnoisedetection
