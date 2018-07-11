@@ -1,0 +1,5 @@
+- platform: command_line
+  switches:
+    reboot:
+      command_state: false
+      command_on: "sudo /opt/reboot"

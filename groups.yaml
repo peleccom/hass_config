@@ -9,6 +9,7 @@ default_view:
   entities:
     - device_tracker.Alex
     - device_tracker.AlexLaptop
+    - device_tracker.user2
     - sensor.owm_temperature
     - media_player.vlcmp
     - camera.webcam
@@ -57,6 +58,8 @@ System:
   icon: mdi:wrench
   entities:
     - group.devPi
+    - script.restart_ha
+    - switch.reboot
 
 ############################################################
 #                                                          #
