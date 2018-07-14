@@ -99,9 +99,13 @@ telegram_bot:
     allowed_chat_ids:
       - !secret telegram_chat_id1
 
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_client_secret
+
 # Example configuration.yaml entry for the notifier
 notify:
   - name: Telegram
     api_key: !secret telegram_api_key
     platform: telegram
-    chat_id: !secret telegram_chat_id1    
+    chat_id: !secret telegram_chat_id1
