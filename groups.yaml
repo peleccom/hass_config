@@ -58,6 +58,7 @@ System:
   icon: mdi:wrench
   entities:
     - group.devPi
+    - group.router
     - group.supervisord
     - script.restart_ha
     - switch.reboot
@@ -97,6 +98,15 @@ devPi:
     - sensor.load_1m
     - sensor.load_5m
     - sensor.load_15m
+
+router:
+  name: router
+  entities:
+    -  sensor.zterouter_uptime
+    -  sensor.zterouter_status
+    -  sensor.zterouter_download_speed
+    -  sensor.zterouter_upload_speed
+
 
 supervisord:
   name: supervisord
