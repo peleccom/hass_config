@@ -37,8 +37,6 @@
 #include "DHT.h"
 #include <ArduinoJson.h>
 
-#define BUILTIN_LED 1
-
 /*
   WiFiManager
   Doc: https://github.com/tzapu/WiFiManager
