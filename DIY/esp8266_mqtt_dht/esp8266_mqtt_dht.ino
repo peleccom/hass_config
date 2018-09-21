@@ -47,7 +47,7 @@
     - MQTT password
   How-to:
     - Define #WIFI_MANAGER, or
-    - Set manually the variables, lines 72-75
+    - Set manually the variables
 */
 
 #define WIFI_MANAGER
@@ -99,7 +99,7 @@ const PROGMEM char*     MQTT_PASSWORD             = "[Redacted]";
     - sudo service avahi-daemon restart
   How-to:
     - Define #MDNS_SD, or
-    - Set manually the variables, lines 106-107
+    - Set manually the variables
 */
 #define MDNS_SD
 
@@ -181,23 +181,6 @@ void publishData(float p_temperature, float p_humidity) {
 // function called when a MQTT message arrived
 void callback(char* p_topic, byte* p_payload, unsigned int p_length) {
 }
-
-void reconnect() {
-  // Loop until we're reconnected
-  while (!client.connected()) {
-    Serial.println("INFO: Attempting MQTT connection...");
-    if (client.connect(MQTT_CLIENT_ID, MQTT_USERNAME, MQTT_PASSWORD)) {
-      Serial.println(F("INFO: Successfully connected to the MQTT broker"));
-    } else {
-      Serial.print("ERROR: failed, rc=");
-      Serial.print(client.state());
-      Serial.println("DEBUG: try again in 5 seconds");
-      // Wait 5 seconds before retrying
-      delay(5000);
-    }
-  }
-}
-
 
 void setup() {
   Serial.begin(115200);
@@ -408,15 +391,6 @@ void measure() {
 }
 
 void loop() {
-
-  // MQTT
-//  if (!client.connected()) {
-//    reconnect();
-//  }
-//  client.loop();
-
-//  ArduinoOTA.handle();
-
     if (isnan(humidity) || isnan(temperature)) {
       Serial.println("ERROR: Failed to send DHT data!");
     } else {
