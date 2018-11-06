@@ -1,2 +1,5 @@
 - platform: vlc
   name: vlcmp
+
+- platform: mpd
+  host: localhost

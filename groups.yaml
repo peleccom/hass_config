@@ -11,7 +11,7 @@ default_view:
     - device_tracker.AlexLaptop
     - device_tracker.user2
     - sensor.owm_temperature
-    - media_player.vlcmp
+    - media_player.mpd
     - camera.webcam
     - group.AlarmClock
     - group.Weather
