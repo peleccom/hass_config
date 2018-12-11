@@ -11,10 +11,14 @@ default_view:
     - device_tracker.AlexLaptop
     - device_tracker.user2
     - sensor.owm_temperature
-    - media_player.mpd
+    - sensor.sensor1_temperature
+    - sensor.sensor1_humidity
+    - light.mqtt_json_light_2
+    - media_player.mpdmp
     - camera.webcam
     - group.AlarmClock
     - group.Weather
+    - history_graph.temperature_graph
 
 #Определяем какие элементы входят в состав группы
 alarmclock:

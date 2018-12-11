@@ -24,8 +24,8 @@ DEFAULT_TIMEOUT = 5
 SENSOR_TYPES = {
     'uptime' : ['Uptime', None, 'mdi:clock'],
     'status' : ['Status', None, 'mdi:water'],
-    'dl_speed' : ['Download speed', None, 'mdi:download'],
-    'ul_speed' : ['Upload speed', None, 'mdi:upload'],
+    'dl_speed' : ['Download speed', 'Kbps', 'mdi:download'],
+    'ul_speed' : ['Upload speed', 'Kbps', 'mdi:upload'],
 }
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({

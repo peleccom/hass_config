@@ -3,10 +3,10 @@
     platform: state
     from: 'not_home'
     to: 'home'
-    entity_id: device_tracker.Alex
+    entity_id: device_tracker.alex
   condition:
-    # - condition: time
-    #   after: '17:00'
+    - condition: time
+      after: '17:00:00'
     - condition: state
       entity_id: input_boolean.trigger_first_alex_arrive
       state: 'on'      
@@ -14,5 +14,6 @@
     - service: homeassistant.turn_off
       entity_id: input_boolean.trigger_first_alex_arrive
     - service: tts.google_say
+      entity_id: media_player.mpdmp
       data:
         message: 'Привет Александр. Добро пожаловать домой'

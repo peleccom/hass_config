@@ -2,7 +2,7 @@
 - alias: Enable First Alex Arrive Trigger
   trigger:
     - platform: time
-      at: '12:00:00'      
+      at: '13:00:00'      
   action: 
     service: homeassistant.turn_on
     entity_id: input_boolean.trigger_first_alex_arrive
@@ -11,7 +11,7 @@
 - alias: Disable First Alex Arrive Trigger
   trigger:
     - platform: time
-      at: "22:00:00"
+      at: "23:00:00"
   action: 
     service: homeassistant.turn_off
     entity_id: input_boolean.trigger_first_alex_arrive

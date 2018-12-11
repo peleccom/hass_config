@@ -3,3 +3,4 @@
 
 - platform: mpd
   host: localhost
+  name: mpdmp

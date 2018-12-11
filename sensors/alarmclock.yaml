@@ -2,4 +2,4 @@
   sensors:
     alarm_time:
       friendly_name: 'Будильник '
-      value_template: '{{ states.input_number.alarmhour.state | int }}:{% if states.input_number.alarmminutes.state|length == 1 %}0{% endif %}{{ states.input_number.alarmminutes.state | int }}'
+      value_template: '{{ "%0.02d:%0.02d" | format(states("input_number.alarmhour") | int, states("input_number.alarmminutes") | int) }}'

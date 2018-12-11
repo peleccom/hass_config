@@ -1,0 +1,11 @@
+- id: '1543960523205'
+  alias: '1'
+  trigger:
+  - at: 00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: media_player.mpdmp
+      message: спокойной ночи
+    service: tts.google_say

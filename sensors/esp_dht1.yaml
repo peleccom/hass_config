@@ -1,0 +1,11 @@
+- platform: mqtt
+  state_topic: 'sensor/dht/5D6511'
+  name: 'sensor1_temperature'
+  unit_of_measurement: '°C'
+  value_template: '{{ value_json.temperature }}'
+ 
+- platform: mqtt
+  state_topic: 'sensor/dht/5D6511'
+  name: 'sensor1_humidity'
+  unit_of_measurement: '%'
+  value_template: '{{ value_json.humidity }}'

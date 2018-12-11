@@ -58,6 +58,15 @@ sun:
 weather:
   - platform: yweather
 
+history_graph:
+  gr1:
+    name: Temperature Graph
+    entities:
+      - sensor.sensor1_temperature
+      - sensor.owm_temperature
+    hours_to_show: 24
+    refresh: 60
+
 # Text to speech
 tts:
   - platform: google
@@ -79,13 +88,20 @@ switch: !include_dir_merge_list switches
 zone: !include zones.yaml
 media_player: !include media_player.yaml
 
-camera:
-  - platform: local_file
-    name: Webcam
-    file_path: /var/tmp_ram/lastsnap.jpg
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
 
-## Automation for: alarmclock...
-automation: !include_dir_merge_list automation
+camera:
+  - platform: ffmpeg
+    name: Webcam
+    ffmpeg_bin: /usr/bin/ffmpeg
+    input: /dev/video0
+
+## Manual automations
+automation old: !include_dir_merge_list automations
+# UI automations
+automation: !include automations.yaml
+
 
 device_tracker:
   - platform: nmap_tracker
@@ -112,4 +128,20 @@ notify:
     chat_id: !secret telegram_chat_id1
 
 mqtt:
-  password: !secret mqtt_password
+  discovery: true
+  broker: 127.0.0.1
+
+
+# RGB:
+light:
+  - platform: mqtt_json
+    name: mqtt_json_light_2
+    state_topic: "home/ESP_LED"
+    command_topic: "home/ESP_LED/set"
+    brightness: true
+    rgb: true
+    effect: true
+    effect_list: [colorfade_slow, colorfade_fast, flash]
+    optimistic: false
+    qos: 0
+

@@ -1,0 +1,10 @@
+ - platform: pulseaudio_loopback
+   sink_name: alsa_output.platform-soc_audio.analog-stereo
+   source_name: alsa_output.platform-soc_audio.analog-stereo.monitor
+   name: room_audio
+
+ - platform: pulseaudio_loopback
+   sink_name: bluez_sink.9C_03_F0_E1_A9_28.a2dp_sink 
+   source_name: alsa_output.platform-soc_audio.analog-stereo.monitor
+   name: kitchen_audio
+
