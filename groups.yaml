@@ -18,7 +18,9 @@ default_view:
     - camera.webcam
     - group.AlarmClock
     - group.Weather
-    - history_graph.temperature_graph
+    - history_graph.living_room_temperature
+    - history_graph.outdoor_temperature
+
 
 #Определяем какие элементы входят в состав группы
 alarmclock:

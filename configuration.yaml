@@ -60,12 +60,17 @@ weather:
 
 history_graph:
   gr1:
-    name: Temperature Graph
+    name: Living room temperature
     entities:
       - sensor.sensor1_temperature
+    hours_to_show: 24
+    refresh: 600
+  gr2:
+    name: Outdoor temperature
+    entities:
       - sensor.owm_temperature
     hours_to_show: 24
-    refresh: 60
+    refresh: 600
 
 # Text to speech
 tts:
