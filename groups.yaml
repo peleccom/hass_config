@@ -18,8 +18,8 @@ default_view:
     - camera.webcam
     - group.AlarmClock
     - group.Weather
-    - history_graph.living_room_temperature
-    - history_graph.outdoor_temperature
+    - group.HistoryGraph
+
 
 
 #Определяем какие элементы входят в состав группы
@@ -57,6 +57,13 @@ Weather:
     # - sensor.owm_temperature
     # - sensor.owm_wind_speed
     # - sun.sun
+HistoryGraph:
+  name: История
+  view: no
+  icon: mdi:weather-cloudy
+  entities:
+    - history_graph.living_room_temperature
+    - history_graph.outdoor_temperature
 
 System:
   name: Система
@@ -68,6 +75,7 @@ System:
     - group.supervisord
     - script.restart_ha
     - switch.reboot
+    - updater.updater
 
 ############################################################
 #                                                          #
