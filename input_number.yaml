@@ -13,3 +13,11 @@ alarmminutes:
   min: 0
   max: 59
   step: 1
+
+neopixel_animation_speed:
+  name: NeoPixel Animation Speed
+  initial: 200
+  min: 0
+  max: 255
+  step: 5
+    
