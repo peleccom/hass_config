@@ -139,7 +139,8 @@ mqtt:
 
 # RGB:
 light:
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json
     name: mqtt_json_light_2
     state_topic: "home/ESP_LED"
     command_topic: "home/ESP_LED/set"
@@ -151,7 +152,8 @@ light:
     qos: 0
 
 
-  - platform: mqtt_json
+  - platform: mqtt
+    schema: json  
     name: "NeoPixel LEDs"
     state_topic: "home/McLighting01_ha/state/out"
     command_topic: "home/McLighting01_ha/state/in"
