@@ -1,7 +1,5 @@
 - platform: openweathermap
   api_key: !secret openweathermap_api_key
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
   language: ru
   monitored_conditions:
     - weather

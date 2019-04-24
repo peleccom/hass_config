@@ -3,7 +3,7 @@
     - platform: state
       entity_id: updater.updater
   action:
-    service: notify.Telegram
+    service: notify.telegram
     data_template:
       title: 'New Home Assistant Release'
       message: "Home Assistant  {{ states.updater.updater.state }}  is now available."

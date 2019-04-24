@@ -13,20 +13,20 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+  
+  auth_providers:
+    - type: legacy_api_password
+      api_password: !secret http_password
+
+
 # Show links to resources in log and frontend
-introduction:
+# introduction:
 
 # Enables the frontend
 frontend:
 
 # Enables configuration UI
 config:
-
-http:
-  # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -55,8 +55,6 @@ map:
 # Track the sun
 sun:
 
-weather:
-  - platform: yweather
 
 history_graph:
   gr1:
@@ -74,7 +72,8 @@ history_graph:
 
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
     language: 'ru'
 
 # Cloud
@@ -99,7 +98,6 @@ ffmpeg:
 camera:
   - platform: ffmpeg
     name: Webcam
-    ffmpeg_bin: /usr/bin/ffmpeg
     input: /dev/video0
 
 ## Manual automations
@@ -157,7 +155,7 @@ light:
     name: "NeoPixel LEDs"
     state_topic: "home/McLighting01_ha/state/out"
     command_topic: "home/McLighting01_ha/state/in"
-    on_command_type: 'first'
+    # on_command_type: 'first'
     effect: true
     effect_list:
       - "Static"

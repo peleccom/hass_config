@@ -6,6 +6,6 @@
     event_data:
       command: '/ping'
   action:
-    - service: notify.Telegram
+    - service: notify.telegram
       data:
         message: 'pong'

@@ -9,6 +9,6 @@
   #   condition: time
   #   after: '20:00'
   action:
-    service: notify.Telegram
+    service: notify.telegram
     data:
       message: 'Alex left the house'

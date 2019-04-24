@@ -1,6 +1,6 @@
 - alias: 'Alarm'
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/1'
       seconds: 0
   condition: # Условия
@@ -18,7 +18,7 @@
         - thu
         - fri
   action: # Действия 
-    - service: notify.Telegram
+    - service: notify.telegram
       data_template:
         title: Доброе утро, Дружище! =)
         message: |
