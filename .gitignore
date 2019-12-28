@@ -1,11 +1,1 @@
-*
-!*.yaml
-!scenes
-!sensors
-!automations
-!switches
-!.travis.yaml
-!.gitignore
-secrets.yaml
-known_devices.yaml
-google_calendars.yaml
+*.swp

@@ -1,0 +1,28 @@
+version: '3.3'
+services: 
+  eclipse-mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto:latest
+    restart: always
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+    ports:
+      - 1883:1883
+    user: '1000:1000'
+
+  homeassistant:
+    container_name: homeassistant
+    #build: ./homeassistant
+    image: homeassistant/raspberrypi3-homeassistant:stable # arm32
+    #image: homeassistant/home-assistant # x86_64/amd64
+    volumes:
+      - ./homeassistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    #network_mode: host
+    environment:
+      - TZ=Europe/Minsk
+    ports:
+     - 8123:8123
+    restart: always
