@@ -127,7 +127,7 @@ notify:
 mqtt:
   discovery: true
   broker: 127.0.0.1
-
+  discovery_prefix: homeassistant
 
 # RGB:
 light:
