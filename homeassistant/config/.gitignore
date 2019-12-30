@@ -1,13 +1,3 @@
-*
-!*.yaml
-!scenes
-!sensors
-!automations
-!switches
-!.travis.yaml
-!.gitignore
-!DIY
-!custom_components
 secrets.yaml
 known_devices.yaml
 google_calendars.yaml
