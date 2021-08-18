@@ -7,16 +7,12 @@ default_view:
   view: yes
   icon: mdi:home
   entities:
-    - device_tracker.Alex
-    - device_tracker.AlexLaptop
-    - device_tracker.user2
-    - sensor.owm_temperature
+    - sensor.openweathermap_temperature
     - sensor.sensor1_temperature
     - sensor.sensor1_humidity
     - light.mqtt_json_light_2
     - light.neopixel_leds
     - input_number.neopixel_animation_speed
-    - media_player.mpdmp
     - camera.webcam
     - group.AlarmClock
     - group.Weather
@@ -45,7 +41,7 @@ AlarmClock:
 
 #Вкладка (tab) описываем состав вкладки.
 Weather:
-  name: Погода
+  name: Погода1
   view: yes
   icon: mdi:weather-cloudy
   entities:
@@ -74,7 +70,6 @@ System:
   icon: mdi:wrench
   entities:
     - group.devPi
-    - group.router
     - group.supervisord
     - script.restart_ha
     - switch.reboot
@@ -92,13 +87,13 @@ Sun:
 WeatherCondition:
   entities:
     - weather.yweather
-    - sensor.owm_cloud_coverage
-    - sensor.owm_condition
-    - sensor.owm_humidity
-    - sensor.owm_rain
-    - sensor.owm_snow
-    - sensor.owm_temperature
-    - sensor.owm_wind_speed
+    - sensor.openweathermap_cloud_coverage
+    - sensor.openweathermap_condition
+    - sensor.openweathermap_humidity
+    - sensor.openweathermap_rain
+    - sensor.openweathermap_snow
+    - sensor.openweathermap_temperature
+    - sensor.openweathermap_wind_speed
 
 devPi:
   name: Pi
@@ -114,14 +109,6 @@ devPi:
     - sensor.load_1m
     - sensor.load_5m
     - sensor.load_15m
-
-router:
-  name: router
-  entities:
-    -  sensor.zterouter_uptime
-    -  sensor.zterouter_status
-    -  sensor.zterouter_download_speed
-    -  sensor.zterouter_upload_speed
 
 
 supervisord:

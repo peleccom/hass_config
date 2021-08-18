@@ -50,19 +50,13 @@ map:
 sun:
 
 
-history_graph:
-  gr1:
-    name: Living room temperature
-    entities:
-      - sensor.sensor1_temperature
-    hours_to_show: 24
-    refresh: 600
-  gr2:
-    name: Outdoor temperature
-    entities:
-      - sensor.owm_temperature
-    hours_to_show: 24
-    refresh: 600
+# history_graph:
+#   gr1:
+#     name: Living room temperature
+#     entities:
+#       - sensor.sensor1_temperature
+#     hours_to_show: 24
+#     refresh: 600
 
 # Text to speech
 tts:
@@ -73,7 +67,7 @@ tts:
 # Cloud
 cloud:
 
-group: !include groups.yaml
+# group: !include groups.yaml
 script: !include scripts.yaml
 
 
@@ -145,7 +139,7 @@ light:
 
 
   - platform: mqtt
-    schema: json  
+    schema: json
     name: "NeoPixel LEDs"
     state_topic: "home/McLighting01_ha/state/out"
     command_topic: "home/McLighting01_ha/state/in"
@@ -214,3 +208,12 @@ light:
     optimistic: false
     qos: 0
     retain: true
+
+# https://community.home-assistant.io/t/ha-corrupted-another-sd-card/195073/12
+logger:
+  default: critical
+
+recorder:
+  purge_keep_days: 5
+  purge_interval: 5
+  db_url: 'sqlite:///:memory:'  # Set log to use memory, not SD card

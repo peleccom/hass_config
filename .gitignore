@@ -1,1 +1,7 @@
 *.swp
+__pycache__/
+.Trash-1000/
+*.save
+.cloud/
+.shopping_list.json
+core

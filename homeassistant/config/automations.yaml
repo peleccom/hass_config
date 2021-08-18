@@ -9,3 +9,16 @@
       entity_id: media_player.mpdmp
       message: спокойной ночи
     service: tts.google_say
+- id: '1614597496336'
+  alias: turn the light on when sun down
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 40b2178275f1ab3f532050e8b0d2f938
+    entity_id: light.yeelight_color5_0x000000000eb6c8e7
+    domain: light
+  mode: single

@@ -1,3 +1,0 @@
-- platform: zte_router
-  host: !secret zte_router_host
-  password: !secret zte_router_password

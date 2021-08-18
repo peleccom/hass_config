@@ -17,14 +17,14 @@
         - wed
         - thu
         - fri
-  action: # Действия 
+  action: # Действия
     - service: notify.telegram
       data_template:
         title: Доброе утро, Дружище! =)
         message: |
-         Просыпайся, на работу пора! За окном сейчас {{ states('sensor.owm_temperature')|int }} °C.
-         {{ states('sensor.owm_condition') }}.
-         Скорость ветра {{ states('sensor.owm_wind_speed') }} метра в секунду.
+         Просыпайся, на работу пора! За окном сейчас {{ states('sensor.openweathermap_temperature')|int }} °C.
+         {{ states('sensor.openweathermap_condition') }}.
+         Скорость ветра {{ states('sensor.openweathermap_wind_speed') }} метра в секунду.
     # - service: media_player.turn_on # Включаем медиа плеер
     #   entity_id: media_player.vlcmp # Указываем, какой именно медиа плеер нас интересует
 
@@ -33,7 +33,7 @@
     #     entity_id: media_player.vlcmp # Указываем, какой именно медиа плеер нас интересует
     #     volume_level: '0.20' # Значение параметра Громкость
 
-    # - service: media_player.select_source # Выбираем источник 
+    # - service: media_player.select_source # Выбираем источник
     #   data:
     #     entity_id: media_player.vlcmp
     #     source: NET RADIO
@@ -49,7 +49,7 @@
     #   data:
     #     entity_id: media_player.vlcmp
     #     volume_level: '0.30'
- 
+
 # Тут было много повторяющихся блоков с растущим значением громкости каждую секунду
 
     # - delay: 00:00:01
@@ -71,8 +71,8 @@
       entity_id: media_player.mpdmp
       data_template:
         message: |
-         Любезный сударь! Извольте выслушать краткую сводку новостей о погоде. 
-         За окном сейчас {{ states('sensor.owm_temperature')|int }} градусов. {{ states('sensor.owm_condition') }}.
-         Скорость ветра {{ states('sensor.owm_wind_speed') }} метра в секунду.
+         Любезный сударь! Извольте выслушать краткую сводку новостей о погоде.
+         За окном сейчас {{ states('sensor.openweathermap_temperature')|int }} градусов. {{ states('sensor.openweathermap_condition') }}.
+         Скорость ветра {{ states('sensor.openweathermap_wind_speed') }} метра в секунду.
         # Указываем какой текст нам необходимо синтезировать
 

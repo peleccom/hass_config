@@ -1,5 +1,5 @@
 version: '3.3'
-services: 
+services:
   eclipse-mosquitto:
     container_name: mosquitto
     image: eclipse-mosquitto:latest
