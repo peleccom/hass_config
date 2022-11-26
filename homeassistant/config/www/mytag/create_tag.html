@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFC tag link creator</title>
+  </head>
+  <body>
+    <script>
+      var DOMAIN = 'http://192.168.100.100:8123';
+
+      function writeToClipboard(value) {
+        // Copy the text inside the text field
+        navigator.clipboard.writeText(value);
+      }
+
+      function createLink() {
+        var tagID = document.getElementById('tagID').value;
+        var link = DOMAIN + '/local/mytag/tag.html' + '#' + tagID;
+        document.getElementById('link').innerHTML = link;
+        writeToClipboard(link);
+      }
+    </script>
+
+    <form action="#" onsubmit="createLink()">
+      <label for=""> Please enter your tag id from home assistant </label>
+      <br />
+      <br />
+      <input type="text" id="tagID" />
+      <br />
+      <br />
+      <input type="submit" />
+    </form>
+
+    <div>
+      Please write this link to nfc tag
+      <div>
+        <span id="link" style="border: 1px solid red; padding: 5; margin: 10"></span>
+      </div>
+    </div>
+  </body>
+</html>
+
